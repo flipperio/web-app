@@ -1,0 +1,35 @@
+{
+	"name": "Flipper",
+	"private": true,
+	"scripts": {
+		"build:js": "webpack",
+		"watch:js": "npm run build:js -- --watch",
+		"build:css": "node-sass-chokidar ./src/css/index.scss --output ./dist/css/",
+		"watch:css": "npm run build:css -- --watch ./src/css",
+		"start:dev-server": "webpack-serve"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-loader": "^7.1.5",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"connect-history-api-fallback": "^1.5.0",
+		"eslint": "^5.4.0",
+		"eslint-config-airbnb": "^17.1.0",
+		"eslint-loader": "^2.1.0",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-plugin-jsx-a11y": "^6.1.1",
+		"eslint-plugin-react": "^7.11.1",
+		"koa-connect": "^2.0.1",
+		"node-sass-chokidar": "^1.3.3",
+		"webpack": "^4.16.5",
+		"webpack-cli": "^3.1.0",
+		"webpack-serve": "^2.0.2"
+	},
+	"dependencies": {
+		"prop-types": "^15.6.2",
+		"react": "^16.4.2",
+		"react-dom": "^16.4.2",
+		"react-router-dom": "^4.3.1"
+	}
+}
