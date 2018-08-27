@@ -56,14 +56,14 @@ class Post extends React.Component {
 		return (
 			<section className='post'>
 				<header className='post__header'>
-					<h6>{post.title}</h6>
-					<p>{post.createdOn}</p>
+					<h3 className='post__title'>{post.title}</h3>
+					<p className='post__date'>{post.createdOn}</p>
 				</header>
 				<div className='post__body'>
 					<p>{post.body}</p>
 				</div>
 				<div className='post__footer'>
-					<button onClick={this.likePost}>{post.likes}</button>
+					<button className='btn btn-primary btn-smaller' onClick={this.likePost}>{post.likes}</button>
 					<p className='error'>{errorMessage}</p>
 				</div>
 			</section>

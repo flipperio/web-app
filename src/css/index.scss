@@ -14,7 +14,10 @@ html {
 
 body {
 	min-height: 100%;
+	background-color: $color-white;
+	line-height: $global-line-height;
 	font-size: $global-font-size;
+	font-family: $global-font-family;
 }
 
 * {
@@ -27,5 +30,16 @@ body {
 }
 
 .site-container {
+	width: 80%;
+	max-width: rem-calc(1200px);
+	margin: 4rem auto 0 auto;
 
+	@include breakpoint(small down) {
+		width: 100%;
+		padding: 0 1rem;
+	}
+}
+
+.site-container--small {
+	max-width: rem-calc(640px);
 }

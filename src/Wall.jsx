@@ -16,8 +16,7 @@ class Wall extends React.Component {
 	render() {
 		const postElements = this.props.wall.posts.map(post => <Post post={post} key={post._id} />);
 		return (
-			<div>
-				<h1>Hello World</h1>
+			<div className='site-container site-container--small post-wall'>
 				<div>
 					{postElements}
 				</div>

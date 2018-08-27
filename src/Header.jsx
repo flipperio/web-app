@@ -6,7 +6,7 @@ function NavLink({ navItem, className }) {
 	const { label, path, icon } = navItem;
 	return (
 		<a href={path} className={className}>
-			<button type='button'><i className={`fa fa-${icon}`} />{label}</button>
+			<button className='btn btn-primary btn-larger'><i className={`fa fa-${icon}`} />{label}</button>
 		</a>
 	);
 }
@@ -32,7 +32,7 @@ function Header() {
 			<div className='header-main__logo'>
 				<img src={config.logoUrl} alt='Header logo' />
 			</div>
-			<nav className='nav-main'>
+			<nav className='header-main__nav'>
 				{navItmes}
 			</nav>
 		</header>

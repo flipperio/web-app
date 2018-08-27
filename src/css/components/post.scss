@@ -1,0 +1,33 @@
+
+.post {
+	width: 100%;
+	margin: 2rem 0;
+	padding: 0.5rem 2rem;
+	background-color: white;
+	box-shadow: 0 0 6px -2px rgba($color-gray-darker, 0.9);
+	border-radius: $global-radius;
+
+	&__header {
+
+	}
+
+	&__body {
+
+	}
+
+	&__footer {
+ 		& button {
+			padding: 0.5rem;
+			min-width: rem-calc(46px);
+		}
+	}
+
+	&__title {
+
+	}
+
+	&__date {
+		font-style: italic;
+		color: $color-gray;
+	}
+}
