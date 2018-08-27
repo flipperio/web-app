@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import config from './config/index.js';
 
-function NavLink({ navItem }) {
+function NavLink({ navItem, className }) {
 	const { label, path, icon } = navItem;
 	return (
-		<a href={path}>
+		<a href={path} className={className}>
 			<button type='button'><i className={`fa fa-${icon}`} />{label}</button>
 		</a>
 	);
@@ -16,18 +16,23 @@ NavLink.propTypes = {
 		label: PropTypes.string.isRequired,
 		path: PropTypes.string.isRequired,
 		icon: PropTypes.string.isRequired
-	}).isRequired
+	}).isRequired,
+	className: PropTypes.string
+};
+
+NavLink.defaultProps = {
+	className: ''
 };
 
 function Header() {
-	const navItmes = config.nav.map(navItem => <NavLink navItem={navItem} key={navItem.label} />);
+	const navItmes = config.nav.map(navItem => <NavLink navItem={navItem} className='nav-main__item' key={navItem.label} />);
 
 	return (
 		<header className='header-main'>
 			<div className='header-main__logo'>
-				<img src={config.logoUrl} alt='' />
+				<img src={config.logoUrl} alt='Header logo' />
 			</div>
-			<nav className='header-main__nav'>
+			<nav className='nav-main'>
 				{navItmes}
 			</nav>
 		</header>
