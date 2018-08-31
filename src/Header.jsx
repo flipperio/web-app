@@ -30,7 +30,7 @@ function Header() {
 	return (
 		<header className='header-main'>
 			<div className='header-main__logo'>
-				<img src={config.logoUrl} alt='Header logo' />
+				<img src={config.logoUrl} alt='' />
 			</div>
 			<nav className='header-main__nav'>
 				{navItmes}

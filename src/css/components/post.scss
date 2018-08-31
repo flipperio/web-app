@@ -17,8 +17,14 @@
 
 	&__footer {
  		& button {
-			padding: 0.5rem;
-			min-width: rem-calc(46px);
+			font-weight: bold;
+			color: $color-secondary;
+			background-color: rgba(0,0,0,0);
+			border: none;
+
+			&:hover {
+				color: $color-secondary-lighter;
+			}
 		}
 	}
 

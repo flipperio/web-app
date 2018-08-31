@@ -3,11 +3,11 @@ export default Object.freeze([
 	{
 		label: 'Wall',
 		path: '/wall',
-		icon: ''
+		icon: 'home'
 	},
 	{
 		label: 'About',
 		path: '/about',
-		icon: ''
+		icon: 'book'
 	}
 ]);

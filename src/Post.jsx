@@ -63,8 +63,11 @@ class Post extends React.Component {
 					<p>{post.body}</p>
 				</div>
 				<div className='post__footer'>
-					<button className='btn btn-primary btn-smaller' onClick={this.likePost}>{post.likes}</button>
-					<p className='error'>{errorMessage}</p>
+					<button className='btn' onClick={this.likePost}>
+						<i className='fa fa-star' />
+						{post.likes + (this.state.postLiked * 1)}
+					</button>
+					<p className='error'><i>{errorMessage}</i></p>
 				</div>
 			</section>
 		);
