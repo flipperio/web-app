@@ -1,0 +1,71 @@
+
+.create-modal {
+	$max-modal-width: rem-calc(600px);
+
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	max-width: $max-modal-width;
+	max-height: rem-calc(400px);
+	padding: 2rem;
+	background-color: $color-white;
+	border-radius: $global-radius;
+	box-shadow: 0 0 6px -2px rgba($color-gray-darker, 0.9);
+
+	@include breakpoint(medium down) {
+		max-height: none;
+		padding: 1rem;
+	}
+
+	&__exit-btn, &__submit-btn {
+		align-self: end;
+	}
+
+	&__exit-btn {
+		font-size: 1.5rem;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+
+		&__field {
+			&__error {
+				display: block;
+				padding: 6px;
+				margin-bottom: 6px;
+				color: #a94442;
+				background-color: #f2dede;
+				border-radius: 6px;
+				border: 1px solid #ebcccc;
+				font-weight:bold;
+			}
+
+			& label {
+				font-weight: bold;
+				font-size: 1.2em;
+				display: block;
+			}
+
+			& input, textarea {
+				width: 100%;
+				margin-bottom: 1rem;
+				padding: 0.5rem;
+				border: none;
+				border-radius: $global-radius;
+				box-shadow: 0 0 6px -2px rgba($color-gray-darker, 0.9);
+			}
+		}
+
+		&__field--textarea {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			& textarea {
+				flex-grow: 1;
+			}
+		}
+	}
+}

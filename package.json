@@ -1,5 +1,5 @@
 {
-	"name": "Flipper",
+	"name": "flipper-web-app",
 	"private": true,
 	"scripts": {
 		"build:js": "webpack",

@@ -67,7 +67,7 @@ class Post extends React.Component {
 						<i className='fa fa-star' />
 						{post.likes + (this.state.postLiked * 1)}
 					</button>
-					<p className='error'><i>{errorMessage}</i></p>
+					{ errorMessage && <div className='alert-danger'><i>{errorMessage}</i></div> }
 				</div>
 			</section>
 		);

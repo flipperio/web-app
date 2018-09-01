@@ -23,7 +23,6 @@ const mockPosts = [
 		_id: '1',
 		title: 'Post 1',
 		body: randomQuote(),
-		comments: 0,
 		likes: 0,
 		createdOn: randomDate()
 	},
@@ -31,7 +30,6 @@ const mockPosts = [
 		_id: '2',
 		title: 'Post 2',
 		body: randomQuote(),
-		comments: 0,
 		likes: 0,
 		createdOn: randomDate()
 	},
@@ -39,7 +37,6 @@ const mockPosts = [
 		_id: '3',
 		title: 'Post 3',
 		body: randomQuote(),
-		comments: 0,
 		likes: 0,
 		createdOn: randomDate()
 	}
@@ -52,6 +49,19 @@ const api = {
 
 	likePost: () => new Promise(function(resolve) {
 		window.setTimeout(() => resolve(), 100);
+	}),
+
+	createPost: ({ title, body }) => new Promise(function(resolve) {
+		window.setTimeout(() => {
+			mockPosts.push({
+				_id: `${Math.random() * 100}`,
+				title,
+				body,
+				likes: 0,
+				createdOn: new Date().toLocaleDateString()
+			});
+			resolve();
+		}, 500);
 	})
 };
 export default api;

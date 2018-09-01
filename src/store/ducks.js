@@ -31,7 +31,7 @@ export function reducer(state, action) {
 			return Object.assign({}, state, { wall: { posts: action.posts } });
 		case actions.OPEN_CREATE_MODAL:
 			return Object.assign({}, state, { createModal: { open: true } });
-		case actions.COSE_CREATE_MODAL:
+		case actions.CLOSE_CREATE_MODAL:
 			return Object.assign({}, state, { createModal: { open: false } });
 		default:
 			return state;

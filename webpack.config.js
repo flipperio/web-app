@@ -35,6 +35,7 @@ module.exports = {
 		content: path.join(__dirname, 'dist'),
 		clipboard: false,
 		port: 8080,
+		host: '0.0.0.0',
 		devMiddleware: {
 			publicPath: '/js'
 		},
