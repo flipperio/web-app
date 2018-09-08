@@ -1,67 +1,23 @@
-import quotes from './quotes.js';
-
-function randomQuote() {
-	const randomIndexA = Math.floor(Math.random() * quotes.length);
-	const randomIndexB = Math.floor(Math.random() * quotes.length);
-	const quoteA = quotes[randomIndexA][0];
-	const quoteB = quotes[randomIndexB][0];
-
-	return `${quoteA} --- ${quoteB}`;
+function apiUrl(endpoint) {
+	return `${process.env.API_URL}/${endpoint}`;
 }
 
-function randomDate() {
-	const start = new Date();
-	const end = new Date();
-	start.setFullYear(start.getFullYear() - 3);
-
-	const randDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-	return randDate.toLocaleDateString();
-}
-
-const mockPosts = [
-	{
-		_id: '1',
-		title: 'Post 1',
-		body: randomQuote(),
-		likes: 0,
-		createdOn: randomDate()
-	},
-	{
-		_id: '2',
-		title: 'Post 2',
-		body: randomQuote(),
-		likes: 0,
-		createdOn: randomDate()
-	},
-	{
-		_id: '3',
-		title: 'Post 3',
-		body: randomQuote(),
-		likes: 0,
-		createdOn: randomDate()
-	}
-];
 
 const api = {
-	fetchWallPosts: () => new Promise(function(resolve) {
-		window.setTimeout(() => resolve(mockPosts), 100);
-	}),
+	makeRequest: (url, method = 'GET', options = {}) => window.fetch(url, { method, ...options })
+	.then(function(response) {
+		if (!response.ok) {
+			throw response;
+		}
 
-	likePost: () => new Promise(function(resolve) {
-		window.setTimeout(() => resolve(), 100);
+		return response.json();
 	}),
-
-	createPost: ({ title, body }) => new Promise(function(resolve) {
-		window.setTimeout(() => {
-			mockPosts.push({
-				_id: `${Math.random() * 100}`,
-				title,
-				body,
-				likes: 0,
-				createdOn: new Date().toLocaleDateString()
-			});
-			resolve();
-		}, 500);
-	})
+	fetchWallPosts: () => api.makeRequest(apiUrl('posts'), 'GET'),
+	likePost: postId => api.makeRequest(apiUrl(`posts/${postId}/like`), 'POST'),
+	createPost: ({ title, body }) => {
+		const headers = { 'Content-Type': 'application/json' };
+		const requestBody = JSON.stringify({ title, body });
+		return api.makeRequest(apiUrl('posts'), 'POST', { headers, body: requestBody });
+	}
 };
 export default api;

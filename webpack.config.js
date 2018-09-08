@@ -1,6 +1,10 @@
+require('dotenv-safe').config();
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const convert = require('koa-connect');
 const history = require('connect-history-api-fallback');
+
+const dotenvPlugin = new Dotenv({ safe: true });
 
 module.exports = {
 	mode: 'development',
@@ -12,6 +16,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx', '.json']
 	},
+	plugins: [dotenvPlugin],
 	module: {
 		rules: [
 			{
@@ -34,7 +39,7 @@ module.exports = {
 	serve: {
 		content: path.join(__dirname, 'dist'),
 		clipboard: false,
-		port: 8080,
+		port: process.env.PORT,
 		host: '0.0.0.0',
 		devMiddleware: {
 			publicPath: '/js'
