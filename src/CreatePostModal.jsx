@@ -54,6 +54,7 @@ class CreatePostModal extends React.Component {
 					return;
 				}
 
+				this.props.resetWallPosts();
 				this.props.fetchWallPosts();
 				this.setState({ success: true, loading: false });
 			},
@@ -182,12 +183,14 @@ class CreatePostModal extends React.Component {
 
 const mapDispatchToProps = {
 	closeCreateModal: () => actionCreators.closeCreateModal(),
-	fetchWallPosts: () => actionCreators.fetchWallPosts()
+	fetchWallPosts: () => actionCreators.fetchWallPosts(),
+	resetWallPosts: () => actionCreators.resetWallPosts()
 };
 
 CreatePostModal.propTypes = {
 	closeCreateModal: PropTypes.func.isRequired,
-	fetchWallPosts: PropTypes.func.isRequired
+	fetchWallPosts: PropTypes.func.isRequired,
+	resetWallPosts: PropTypes.func.isRequired
 };
 
 export default connect(null, mapDispatchToProps)(CreatePostModal);

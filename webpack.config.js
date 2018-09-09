@@ -40,7 +40,6 @@ module.exports = {
 		content: path.join(__dirname, 'dist'),
 		clipboard: false,
 		port: process.env.PORT,
-		host: '0.0.0.0',
 		devMiddleware: {
 			publicPath: '/js'
 		},

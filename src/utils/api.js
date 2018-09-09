@@ -12,7 +12,7 @@ const api = {
 
 		return response.json();
 	}),
-	fetchWallPosts: () => api.makeRequest(apiUrl('posts'), 'GET'),
+	fetchWallPosts: (page = 0, count = 10) => api.makeRequest(apiUrl(`posts/?page=${page}&count=${count}`), 'GET'),
 	likePost: postId => api.makeRequest(apiUrl(`posts/${postId}/like`), 'POST'),
 	createPost: ({ title, body }) => {
 		const headers = { 'Content-Type': 'application/json' };
