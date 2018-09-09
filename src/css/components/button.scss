@@ -1,0 +1,54 @@
+
+.btn {
+	display: inline-block;
+	border-radius: $global-radius;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	& .fa {
+		margin-right: 12px;
+	}
+}
+
+.btn-icon-no-margin {
+	& .fa {
+		margin-right: 0;
+	}
+}
+
+.btn-larger {
+	padding: 0.8rem;
+	font-size: 1.2rem;
+	margin: 0.1rem 0.5rem;
+
+	@include breakpoint(medium down) {
+		font-size: 1rem;
+		padding: 0.5rem;
+	}
+}
+
+.btn-smaller {
+	padding: 0.2rem;
+}
+
+.btn-primary {
+	color: $color-white;
+	background-color: $color-primary;
+	border: none;
+
+	&:hover {
+		background-color: $color-primary-darker;
+	}
+}
+
+.btn-primary-inverted {
+	color: $color-primary;
+	background-color: $color-white;
+	border: none;
+
+	&:hover {
+		color: $color-primary-darker;
+	}
+}
