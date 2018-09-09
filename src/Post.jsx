@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import api from './utils/api.js';
 
 class Post extends React.Component {
@@ -52,12 +53,20 @@ class Post extends React.Component {
 	render() {
 		const post = this.props.post;
 		const errorMessage = this.state.errorMessage;
+		let localDate = moment(post.createdOn);
+
+		if (localDate.isValid() === false) {
+			localDate = 'Invalid Date';
+		}
+		else {
+			localDate = localDate.format('MMM DD, YYYY');
+		}
 
 		return (
 			<section className='post'>
 				<header className='post__header'>
 					<h3 className='post__title'>{post.title}</h3>
-					<p className='post__date'>{post.createdOn}</p>
+					<p className='post__date'>{localDate}</p>
 				</header>
 				<div className='post__body'>
 					<p>{post.body}</p>
